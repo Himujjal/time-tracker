@@ -1,0 +1,14 @@
+{
+  "name": "time-tracker",
+  "version": "0.1.0",
+  "description": "A Simple Time Tracking application for your time.",
+  "main": "index.js",
+  "author": "Himujjal",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.12.3",
+    "nodemon": "^1.12.1"
+  }
+}
