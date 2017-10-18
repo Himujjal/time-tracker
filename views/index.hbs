@@ -1,0 +1,56 @@
+<h1 style="text-align:center;">
+  Time Tracker App
+</h1>
+<hr>
+<div class="jumbotron">
+  <p id="time" style="text-align:center;font-size:40px;">
+    00 Hour(s) : 00 Minute(s) : 00 Second(s)
+  </p>
+  <hr class="my-4">
+  <p id="activity" style="text-align:center;font-size:50px;color:#ff6341;">
+  </p>
+  <label for="basic-url">Your Activity Name</label>
+  <div class="input-group">
+    <input type="text" class="form-control" id="activityInput" aria-describedby="basic-addon3">
+  </div>
+  <br/>
+  <p class="lead">
+    <a class="btn btn-success btn-lg" onclick="startTimer()" id="startTimer" role="button">Start Timer</a>
+    &nbsp;
+    <a class="btn btn-danger btn-lg disabled" onclick="stopTimer()" id="stopTimer" role="button">Stop Timer</a>
+  </p>
+</div>
+<hr/>
+<h2 style="text-align:center;">
+  Today's Records:
+</h2>
+<div style="text-align:center;">
+  <ul class="list-group">
+    {{#each records}}
+    <li class="list-group-item">
+      <b class="list-date">{{{this.date}}}</b>:&nbsp;&nbsp;
+      <i style="color:#007e1b">{{{this.activity}}}</i>&nbsp;&nbsp;
+      <b style="color:#ff6341">{{this.hours}} Hours:</b>
+      <b style="color:#ff6341">{{this.minutes}} Minutes:</b>
+      <b style="color:#ff6341">{{this.seconds}} Seconds</b>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+
+
+<script>
+  var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  var noOfClasses = document.getElementsByClassName('list-date').length;
+  console.log(noOfClasses);
+  for (var i = 0; i < noOfClasses; i++) {
+    var date = document.getElementsByClassName('list-date')[i];
+    console.log(date);
+    var arr = date.innerHTML.split("-");
+    console.log(arr);
+    date.innerHTML = days[arr[3]] + ", " + arr[0] + "-" + arr[1] + "-" + arr[2];
+    
+  }
+</script>
+
+<script src="/js/timer.js"></script>

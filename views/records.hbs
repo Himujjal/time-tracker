@@ -1,0 +1,30 @@
+<h1>
+    All Past Records
+</h1>
+<div style="text-align:center;">
+  <ul class="list-group">
+    {{#each records}}
+    <li class="list-group-item">
+      <b class="list-date">{{{this.date}}}</b>:&nbsp;&nbsp;
+      <i style="color:#007e1b">{{{this.activity}}}</i>&nbsp;&nbsp;
+      <b style="color:#ff6341">{{this.hours}} Hours:</b>
+      <b style="color:#ff6341">{{this.minutes}} Minutes:</b>
+      <b style="color:#ff6341">{{this.seconds}} Seconds</b>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+
+<script>
+  var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  var noOfClasses = document.getElementsByClassName('list-date').length;
+  console.log(noOfClasses);
+  for (var i = 0; i < noOfClasses; i++) {
+    var date = document.getElementsByClassName('list-date')[i];
+    console.log(date);
+    var arr = date.innerHTML.split("-");
+    console.log(arr);
+    date.innerHTML = days[arr[3]] + ", " + arr[0] + "-" + arr[1] + "-" + arr[2];
+    
+  }
+</script>
